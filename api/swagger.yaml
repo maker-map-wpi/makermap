@@ -1,0 +1,223 @@
+---
+swagger: "2.0"
+info:
+  description: This is a simple API
+  version: 1.0.0
+  title: MakerMap IQP API
+  contact:
+    email: gr-makermap@wpi.edu
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+host: virtserver.swaggerhub.com
+basePath: /MakerMap/makermap_api/1.0.0
+tags:
+- name: admin
+  description: Secured Admin-only calls
+- name: user
+  description: Operations available to regular users
+schemes:
+- https
+paths:
+  /searchMap:
+    post:
+      tags:
+      - user
+      - admin
+      summary: get list of buildings
+      description: |
+        get list of buildings
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: searchMapRequest
+        description: get list of buildings
+        required: false
+        schema:
+          $ref: '#/definitions/searchMapRequest'
+      responses:
+        "200":
+          description: search results matching criteria
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Building'
+        "400":
+          description: bad input parameter
+definitions:
+  Building:
+    type: object
+    required:
+    - address
+    - description
+    - hours
+    - image
+    - lat
+    - long
+    - manager
+    - name
+    - uuid
+    properties:
+      uuid:
+        type: string
+        format: uuid
+      name:
+        type: string
+      address:
+        type: string
+      lat:
+        type: number
+      long:
+        type: number
+      description:
+        type: string
+      image:
+        type: string
+        format: url
+      manager:
+        type: string
+        format: uuid
+      hours:
+        type: string
+  Lab:
+    type: object
+    required:
+    - Building
+    - description
+    - hours
+    - lat
+    - long
+    - manager
+    - name
+    - uuid
+    properties:
+      Building:
+        type: object
+        properties: {}
+      uuid:
+        type: string
+        format: uuid
+      name:
+        type: string
+      lat:
+        type: number
+      long:
+        type: number
+      description:
+        type: string
+      image:
+        type: string
+        format: url
+      manager:
+        type: string
+        format: uuid
+      hours:
+        type: string
+  Tool:
+    type: object
+    required:
+    - Lab
+    - bookingLink
+    - description
+    - images
+    - name
+    - owner
+    - restrictPublic
+    - uuid
+    properties:
+      Lab:
+        type: object
+        properties: {}
+      uuid:
+        type: string
+        format: uuid
+      name:
+        type: string
+      description:
+        type: string
+      images:
+        type: string
+        format: url
+      owner:
+        type: string
+        format: uuid
+      bookingLink:
+        type: string
+        format: url
+      restrictPublic:
+        type: boolean
+        default: false
+  Person:
+    type: object
+    required:
+    - description
+    - email
+    - image
+    - name
+    - officeLocation
+    - phone
+    - title
+    - uuid
+    properties:
+      uuid:
+        type: string
+        format: uuid
+      name:
+        type: string
+      description:
+        type: string
+      image:
+        type: string
+        format: url
+      email:
+        type: string
+      officeLocation:
+        type: string
+      phone:
+        type: string
+      title:
+        type: string
+  Event:
+    type: object
+    required:
+    - description
+    - endTime
+    - image
+    - link
+    - name
+    - person
+    - startTime
+    - uuid
+    properties:
+      uuid:
+        type: string
+        format: uuid
+      name:
+        type: string
+      description:
+        type: string
+      image:
+        type: string
+        format: url
+      link:
+        type: string
+        format: url
+      startTime:
+        type: integer
+      endTime:
+        type: integer
+      person:
+        type: string
+  searchMapRequest:
+    type: object
+    required:
+    - uuid
+    properties:
+      searchTerm:
+        type: string
+      uuid:
+        type: string
+        format: uuid
