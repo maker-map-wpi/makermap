@@ -29,7 +29,6 @@ for sql in sql_commands:
         for col in range(len(data[row])):
           myresult[type[i]][data[row][1]][labels[col][0]] = data[row][col]
     i += 1
-
 # add tags
 for tag in myresult["Tags"]:
   if myresult["Tags"][tag]["TagType"] == "Tools":
@@ -67,4 +66,4 @@ for building in myresult["Buildings"]:
 
 # convert from dict to json
 output =  json.dumps(myresult["Buildings"])
-# print(output)
+print(output)
