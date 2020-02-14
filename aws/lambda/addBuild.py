@@ -17,6 +17,3 @@ def addBuilding(idB, name, addr, lat, longi, desc, img, man, hour):
     data = (idB, name, addr, lat, longi, desc, img, man, hour)
     cursor.execute(sql_cmd, data)
     mydb.commit()
-
-
-addBuilding("d8a2a380-cefc-4c7a-a55f-29de90d7d1fb", "name", "address", 10.0, 10.0, "description", "image folder", "d8a2a380-cefc-4c7a-a55f-29de90d7d1fc", "hours")
