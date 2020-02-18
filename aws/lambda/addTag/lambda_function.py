@@ -13,7 +13,7 @@ cursor = mydb.cursor()
 
 
 def addTool(id, type, tagID, tag):
-    sql_cmd = ("INSERT INTO Labs(idTags, TagType, TagID, Tag) VALUES (%s, %s, %s, %s)")
+    sql_cmd = ("INSERT INTO Labs(idTags, TaggedObjTable, TaggedObjID, Tag) VALUES (%s, %s, %s, %s)")
     data = (id, type, tagID, tag)
     cursor.execute(sql_cmd, data)
     mydb.commit()
