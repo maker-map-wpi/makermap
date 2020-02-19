@@ -14,7 +14,7 @@ cursor = mydb.cursor()
 
 
 def addTool(name, idL, desc, img, book, own, res):
-    sql_cmd = ("INSERT INTO Labs(idTools, Name, LabID, Description, ImageFolder, BookingLink, OwnerID, RestrictPublic) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)")
+    sql_cmd = ("INSERT INTO Tools(idTools, Name, LabID, Description, ImageFolder, BookingLink, OwnerID, RestrictPublic) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)")
     data = (str(uuid.uuid4()), name, idL, desc, img, book, own, res)
     cursor.execute(sql_cmd, data)
     mydb.commit()

@@ -13,8 +13,8 @@ mydb = mysql.connector.connect(
 cursor = mydb.cursor()
 
 
-def addTag(type, tagID, tag):
-    sql_cmd = ("INSERT INTO Labs(idTags, TaggedObjTable, TaggedObjID, Tag) VALUES (%s, %s, %s, %s)")
-    data = (str(uuid.uuid4()), type, tagID, tag)
+def editTool(idT, name, idL, desc, img, book, own, res):
+    sql_cmd = ("UPDATE Tools SET Name = %s, LabID = %s, Description = %s, ImageFolder = %s, BookingLink = %s, OwnerID = %s, RestrictPublic = %s WHERE idTools = %s")
+    data = (name, idL, desc, img, book, own, res, idT)
     cursor.execute(sql_cmd, data)
     mydb.commit()
