@@ -167,11 +167,7 @@ definitions:
     - long
     - manager
     - name
-    - uuid
     properties:
-      uuid:
-        type: string
-        format: uuid
       name:
         type: string
       address:
@@ -200,14 +196,10 @@ definitions:
     - long
     - manager
     - name
-    - uuid
     properties:
       Building:
         type: object
         properties: {}
-      uuid:
-        type: string
-        format: uuid
       name:
         type: string
       lat:
@@ -234,14 +226,10 @@ definitions:
     - name
     - owner
     - restrictPublic
-    - uuid
     properties:
       Lab:
         type: object
         properties: {}
-      uuid:
-        type: string
-        format: uuid
       name:
         type: string
       description:
@@ -268,11 +256,7 @@ definitions:
     - officeLocation
     - phone
     - title
-    - uuid
     properties:
-      uuid:
-        type: string
-        format: uuid
       name:
         type: string
       description:
@@ -298,11 +282,7 @@ definitions:
     - name
     - person
     - startTime
-    - uuid
     properties:
-      uuid:
-        type: string
-        format: uuid
       name:
         type: string
       description:
@@ -325,11 +305,7 @@ definitions:
     - name
     - obj_uuid
     - table
-    - uuid
     properties:
-      uuid:
-        type: string
-        format: uuid
       name:
         type: string
       table:
@@ -358,11 +334,7 @@ definitions:
     - long
     - manager
     - name
-    - uuid
     properties:
-      uuid:
-        type: string
-        format: uuid
       name:
         type: string
       address:
@@ -391,14 +363,10 @@ definitions:
     - long
     - manager
     - name
-    - uuid
     properties:
       Building:
         type: object
         properties: {}
-      uuid:
-        type: string
-        format: uuid
       name:
         type: string
       lat:
@@ -425,14 +393,10 @@ definitions:
     - name
     - owner
     - restrictPublic
-    - uuid
     properties:
       Lab:
         type: object
         properties: {}
-      uuid:
-        type: string
-        format: uuid
       name:
         type: string
       description:
@@ -455,11 +419,7 @@ definitions:
     - name
     - obj_uuid
     - table
-    - uuid
     properties:
-      uuid:
-        type: string
-        format: uuid
       name:
         type: string
       table:

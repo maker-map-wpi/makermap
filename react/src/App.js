@@ -1,8 +1,13 @@
 import React from "react";
+import  {BrowserRouter as Router,Switch} from 'react-router-dom'
+import Navbar from './components/Navbar'
 
 export default () => (
-  <>
-    <h1>Welcome to React Parcel Micro App!</h1>
-    <p>Hard to get more minimal than this React app.</p>
-  </>
+  <Router>
+    <Navbar/>
+    <Switch>
+
+  
+    </Switch>
+  </Router>
 );
