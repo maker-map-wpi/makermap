@@ -1,5 +1,6 @@
 import mysql.connector
 import json
+import uuid
 
 # connect to db
 mydb = mysql.connector.connect(
@@ -12,8 +13,8 @@ mydb = mysql.connector.connect(
 cursor = mydb.cursor()
 
 
-def addLab(idL, idB, name, hour, lat, longi, desc, room, img, man):
+def addLab(idB, name, hour, lat, longi, desc, room, img, man):
     sql_cmd = ("INSERT INTO Labs(idLabs, BuildingID, Name, Hours, Latitude, Longitude, Description, RoomNum, ImageFolder, Manager) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)")
-    data = (idL, idB, name, hour, lat, longi, desc, room, img, man)
+    data = (str(uuid.uuid4()), idB, name, hour, lat, longi, desc, room, img, man)
     cursor.execute(sql_cmd, data)
     mydb.commit()
