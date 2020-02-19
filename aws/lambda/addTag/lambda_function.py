@@ -1,5 +1,6 @@
 import mysql.connector
 import json
+import uuid
 
 # connect to db
 mydb = mysql.connector.connect(
@@ -12,8 +13,8 @@ mydb = mysql.connector.connect(
 cursor = mydb.cursor()
 
 
-def addTool(id, type, tagID, tag):
+def addTool(type, tagID, tag):
     sql_cmd = ("INSERT INTO Labs(idTags, TaggedObjTable, TaggedObjID, Tag) VALUES (%s, %s, %s, %s)")
-    data = (id, type, tagID, tag)
+    data = (str(uuid.uuid4()), type, tagID, tag)
     cursor.execute(sql_cmd, data)
     mydb.commit()

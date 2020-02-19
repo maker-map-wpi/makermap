@@ -20,7 +20,7 @@ schemes:
 - https
 paths:
   /searchMap:
-    post:
+    get:
       tags:
       - user
       - admin
@@ -47,6 +47,114 @@ paths:
               $ref: '#/definitions/Building'
         "400":
           description: bad input parameter
+  /addBuilding:
+    post:
+      tags:
+      - admin
+      summary: add a building to the map
+      description: |
+        input new building into map
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: addBuildingRequest
+        description: add building to map
+        required: false
+        schema:
+          $ref: '#/definitions/addBuildingRequest'
+      responses:
+        "200":
+          description: building added
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Building'
+        "400":
+          description: bad input parameter
+  /addLab:
+    post:
+      tags:
+      - admin
+      summary: add a lab to the map
+      description: |
+        input a new building into map
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: addLabRequest
+        description: add lab to map
+        required: false
+        schema:
+          $ref: '#/definitions/addLabRequest'
+      responses:
+        "200":
+          description: lab added
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Lab'
+        "400":
+          description: bad input parameter
+  /addTool:
+    post:
+      tags:
+      - admin
+      summary: add a tool to the map
+      description: |
+        input new tool into map
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: addToolRequest
+        description: add tool to map
+        required: false
+        schema:
+          $ref: '#/definitions/addToolRequest'
+      responses:
+        "200":
+          description: tool added
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Tool'
+        "400":
+          description: bad input parameter
+  /addTag:
+    post:
+      tags:
+      - admin
+      summary: add a tag to the map
+      description: |
+        input new tag into map
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: addTagRequest
+        description: add tag to map
+        required: false
+        schema:
+          $ref: '#/definitions/addTagRequest'
+      responses:
+        "200":
+          description: tag added
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Tag'
+        "400":
+          description: bad input parameter
 definitions:
   Building:
     type: object
@@ -59,11 +167,7 @@ definitions:
     - long
     - manager
     - name
-    - uuid
     properties:
-      uuid:
-        type: string
-        format: uuid
       name:
         type: string
       address:
@@ -92,14 +196,10 @@ definitions:
     - long
     - manager
     - name
-    - uuid
     properties:
       Building:
         type: object
         properties: {}
-      uuid:
-        type: string
-        format: uuid
       name:
         type: string
       lat:
@@ -126,14 +226,10 @@ definitions:
     - name
     - owner
     - restrictPublic
-    - uuid
     properties:
       Lab:
         type: object
         properties: {}
-      uuid:
-        type: string
-        format: uuid
       name:
         type: string
       description:
@@ -160,11 +256,7 @@ definitions:
     - officeLocation
     - phone
     - title
-    - uuid
     properties:
-      uuid:
-        type: string
-        format: uuid
       name:
         type: string
       description:
@@ -190,11 +282,7 @@ definitions:
     - name
     - person
     - startTime
-    - uuid
     properties:
-      uuid:
-        type: string
-        format: uuid
       name:
         type: string
       description:
@@ -211,6 +299,20 @@ definitions:
         type: integer
       person:
         type: string
+  Tag:
+    type: object
+    required:
+    - name
+    - obj_uuid
+    - table
+    properties:
+      name:
+        type: string
+      table:
+        type: string
+      obj_uuid:
+        type: string
+        format: uuid
   searchMapRequest:
     type: object
     required:
@@ -219,5 +321,109 @@ definitions:
       searchTerm:
         type: string
       uuid:
+        type: string
+        format: uuid
+  addBuildingRequest:
+    type: object
+    required:
+    - address
+    - description
+    - hours
+    - image
+    - lat
+    - long
+    - manager
+    - name
+    properties:
+      name:
+        type: string
+      address:
+        type: string
+      lat:
+        type: number
+      long:
+        type: number
+      description:
+        type: string
+      image:
+        type: string
+        format: url
+      manager:
+        type: string
+        format: uuid
+      hours:
+        type: string
+  addLabRequest:
+    type: object
+    required:
+    - Building
+    - description
+    - hours
+    - lat
+    - long
+    - manager
+    - name
+    properties:
+      Building:
+        type: object
+        properties: {}
+      name:
+        type: string
+      lat:
+        type: number
+      long:
+        type: number
+      description:
+        type: string
+      image:
+        type: string
+        format: url
+      manager:
+        type: string
+        format: uuid
+      hours:
+        type: string
+  addToolRequest:
+    type: object
+    required:
+    - Lab
+    - bookingLink
+    - description
+    - images
+    - name
+    - owner
+    - restrictPublic
+    properties:
+      Lab:
+        type: object
+        properties: {}
+      name:
+        type: string
+      description:
+        type: string
+      images:
+        type: string
+        format: url
+      owner:
+        type: string
+        format: uuid
+      bookingLink:
+        type: string
+        format: url
+      restrictPublic:
+        type: boolean
+        default: false
+  addTagRequest:
+    type: object
+    required:
+    - name
+    - obj_uuid
+    - table
+    properties:
+      name:
+        type: string
+      table:
+        type: string
+      obj_uuid:
         type: string
         format: uuid
