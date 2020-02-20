@@ -19,5 +19,3 @@ def addBuilding(name, addr, lat, longi, desc, img, man, hour):
     cursor.execute(sql_cmd, data)
     print(cursor.statement)
     mydb.commit()
-
-addBuilding("blah", "blah", 1, 1, "blah", "nblah", "bdo", "sfg")

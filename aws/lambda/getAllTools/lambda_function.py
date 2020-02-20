@@ -54,20 +54,20 @@ def get_data():
         i += 1
     # add tags
     for tag in myresult["Tags"]:
-      if myresult["Tags"][tag]["TagType"] == "Tools":
+      if myresult["Tags"][tag]["TaggedObjTable"] == "Tools":
         for tool in myresult["Tools"]:
           if myresult["Tools"][tool]["idTools"] == myresult["Tags"][tag]["TaggedObjID"]:
             myresult["Tools"][tool]["Tags"] = {}
             myresult["Tools"][tool]["Tags"][myresult["Tags"][tag]["Tag"]] = myresult["Tags"][tag]
 
 
-      elif myresult["Tags"][tag]["TagType"] == "Labs":
+      elif myresult["Tags"][tag]["TaggedObjTable"] == "Labs":
         for lab in myresult["Labs"]:
           if myresult["Labs"][lab]["idLabs"] == myresult["Tags"][tag]["TaggedObjID"]:
             myresult["Labs"][lab]["Tags"] = {}
             myresult["Labs"][lab]["Tags"][myresult["Tags"][tag]["Tag"]] = myresult["Tags"][tag]
 
-      elif myresult["Tags"][tag]["TagType"] == "Buildings":
+      elif myresult["Tags"][tag]["TaggedObjTable"] == "Buildings":
        for building in myresult["Buildings"]:
           if myresult["Buildings"][building]["idBuildings"] == myresult["Tags"][tag]["TaggedObjID"]:
             myresult["Buildings"][building]["Tags"] = {}
