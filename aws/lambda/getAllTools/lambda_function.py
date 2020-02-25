@@ -90,4 +90,3 @@ def get_data():
     # convert from dict to json
     return json.dumps(myresult["Buildings"])
 
-print(get_data())
