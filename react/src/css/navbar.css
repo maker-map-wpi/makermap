@@ -1,5 +1,3 @@
 .ui.borderless.inverted.vertical.left.fixed.menu.custom {
-  background:var(--color-2);
-  font-family: "Roboto",sans-serif;
-  font-size: 1em;
+  background:var(--color-1);
 }
