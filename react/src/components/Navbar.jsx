@@ -4,9 +4,14 @@ import {Link} from "react-router-dom"
 import "../css/navbar.css"
 
 export default class Navbar extends React.Component {
+  constructor(props){
+    super(props)
+
+  }
+
   render() {
     return <Sidebar.Pushable>
-      <Sidebar as={Menu} width='thin' size='small' visible={true} className="custom" inverted fixed='left' vertical borderless>
+      <Sidebar as={Menu} animation="uncover" visible={this.props.click} className="custom" inverted fixed='left' vertical borderless>
         <Menu.Item header>
           <Image src='https://upload.wikimedia.org/wikipedia/en/1/1b/WPI_logo.png' size='mini' spaced='right'/>
           MakerMap
