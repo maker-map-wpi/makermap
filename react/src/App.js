@@ -3,12 +3,12 @@ import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 
 import Navbar from './components/Navbar'
 import Map from './components/Map'
-import Profile from './components/Profile'
+import Page from './components/profile/ProfilePage'
 
 export default () => (
   <Router>
     <Navbar>
-    <Profile>
+    <Page>
     <Switch>
     <Route path="/">
       <Map />

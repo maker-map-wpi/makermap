@@ -2,10 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8f2343fc-bbea-4d08-8967-3737127a7106" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/react/src/components/Profile.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/react/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/react/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/react/src/components/profile/ProfileArea.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/react/src/components/profile/ProfilePage.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/react/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/react/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/react/src/components/Example.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/react/src/components/Example.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react/src/components/Profile.jsx" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -20,6 +21,12 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/react/src/components/profile" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -43,7 +50,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1582662323426</updated>
-      <workItem from="1582662324900" duration="2112000" />
+      <workItem from="1582662324900" duration="5746000" />
     </task>
     <servers />
   </component>
