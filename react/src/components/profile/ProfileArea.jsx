@@ -16,5 +16,3 @@ ProfileArea.propTypes = {
     username: PropTypes.string.isRequired,
     emailAddress: PropTypes.string.isRequired
 };
-
-export default ProfileArea;

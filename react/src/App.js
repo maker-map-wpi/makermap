@@ -3,21 +3,7 @@ import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 
 import Navbar from './components/Navbar'
 import Map from './components/Map'
-import Page from './components/profile/ProfilePage'
-
-export default () => (
-  <Router>
-    <Navbar>
-    <Page>
-    <Switch>
-    <Route path="/">
-      <Map />
-    </Route>
-
-    </Switch>
-    </Profile>
-    </Navbar>
-  </Router>
+import ProfilePage from './components/profile/ProfilePage'
 
 export default class App extends React.Component {
   constructor() {

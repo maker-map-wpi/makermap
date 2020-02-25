@@ -6,7 +6,6 @@
     "start": "parcel index.html",
     "build": "parcel build index.html",
     "deploy": "npm run-script build && aws s3 rm s3://www.makermap-wpi.com --profile makermap --recursive && aws s3 sync dist/ s3://www.makermap-wpi.com --profile makermap"
-
   },
   "license": "MIT",
   "dependencies": {
@@ -20,14 +19,12 @@
     "semantic-ui-react": "^0.88.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.8.4",
-    "@babel/plugin-proposal-class-properties": "^7.8.3",
-    "babel-preset-nano-react-app": "^0.1.0",
     "@babel/core": "^7.6.0",
     "@babel/plugin-proposal-class-properties": "^7.5.5",
     "@babel/preset-env": "^7.6.0",
     "@babel/preset-react": "^7.0.0",
     "babel-preset-env": "^1.7.0",
+    "babel-preset-nano-react-app": "^0.1.0",
     "babel-preset-react": "^6.24.1",
     "parcel-bundler": "^1.12.3"
   }
