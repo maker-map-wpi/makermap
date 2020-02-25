@@ -1,18 +1,15 @@
-import React, {PropTypes} from 'react';
-import ProfileArea from './ProfileArea';
+import React from 'react';
 
 export default class ProfilePage extends React.Component {
     render() {
         return (
             <div>
-                <ProfileArea
-                    username="kandonie"
-                    emailAddress="kandonie@wpi.edu"
-                />
+                <h1>Kristen Andonie {this.props.name}</h1>
+
+                <ul>
+                    <li>Email address: kandonie@wpi.edu {this.props.email}</li>
+                </ul>
             </div>
         );
     }
 }
-
-ProfilePage.propTypes = {
-};
