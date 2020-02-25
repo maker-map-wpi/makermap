@@ -86,7 +86,8 @@ def get_data():
         for lab in myresult["Labs"]:
             if myresult["Labs"][lab]["BuildingID"] == myresult["Buildings"][building]["idBuildings"]:
                 myresult["Buildings"][building]["Labs"][myresult["Labs"][lab]["Name"]] = (myresult["Labs"][lab])
-
+    
+    r = [v for v in myresult['Buildings'].values()]
     # convert from dict to json
-    return json.dumps(myresult["Buildings"])
+    return json.dumps(r)
 
