@@ -14,7 +14,7 @@ cursor = mydb.cursor()
 
 
 def editTag(idT,tType, tagID, tag):
-    sql_cmd = ("UPDATE Labs SET TaggedObjTable = %s, TaggedObjID = %s, Tag = %s WHERE idTags = %s")
+    sql_cmd = ("UPDATE Labs SET taggedObjTable = %s, taggedObjID = %s, tag = %s WHERE idTags = %s")
     data = (tType, tagID, tag, idT)
     cursor.execute(sql_cmd, data)
     mydb.commit()

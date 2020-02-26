@@ -14,7 +14,7 @@ cursor = mydb.cursor()
 
 
 def addTag(type, tagID, tag):
-    sql_cmd = ("INSERT INTO Labs(idTags, TaggedObjTable, TaggedObjID, Tag) VALUES (%s, %s, %s, %s)")
+    sql_cmd = ("INSERT INTO Labs(idTags, taggedObjTable, taggedObjID, tag) VALUES (%s, %s, %s, %s)")
     data = (str(uuid.uuid4()), type, tagID, tag)
     cursor.execute(sql_cmd, data)
     mydb.commit()
