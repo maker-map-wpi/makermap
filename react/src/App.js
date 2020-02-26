@@ -35,12 +35,14 @@ export default class App extends React.Component {
   render() {
     return <Router>
       <Navbar click={this.state.sidebar}>
+        <ProfilePage>
         <Switch>
           <Route path="/">
             <Map data= {this.state.data} click={this.handleClick}/>
           </Route>
 
         </Switch>
+        </ProfilePage>
       </Navbar>
     </Router>
   }
