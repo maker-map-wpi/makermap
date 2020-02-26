@@ -12,7 +12,7 @@ mydb = mysql.connector.connect(
 cursor = mydb.cursor()
 
 def editLab(idL, idB, name, hour, lat, longi, desc, room, img, man):
-    sql_cmd = ("UPDATE Labs SET BuildingID = %s, Name = %s, Hours = %s, Latitude = %s, Longitude = %s, Description = %s, RoomNum = %s, ImageFolder = %s, Manager = %s WHERE idLabs = %s")
+    sql_cmd = ("UPDATE Labs SET buildingID = %s, name = %s, hours = %s, latitude = %s, longitude = %s, description = %s, roomNum = %s, imageFolder = %s, manager = %s WHERE idLabs = %s")
     data = (idB, name, hour, lat, longi, desc, room, img, man, idL)
     cursor.execute(sql_cmd, data)
     mydb.commit()

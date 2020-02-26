@@ -14,7 +14,7 @@ cursor = mydb.cursor()
 
 
 def addBuilding(name, addr, lat, longi, desc, img, man, hour):
-    sql_cmd = ("INSERT INTO Buildings(idBuildings, Name, Address, Latitude, Longitude, Description, ImageFolder, Manager, Hours) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s)")
+    sql_cmd = ("INSERT INTO Buildings(idBuildings, name, address, latitude, longitude, description, imageFolder, manager, hours) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s)")
     data = (str(uuid.uuid4()), name, addr, lat, longi, desc, img, man, hour)
     cursor.execute(sql_cmd, data)
     print(cursor.statement)

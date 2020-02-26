@@ -36,7 +36,7 @@ def get_data():
     mycursor = mydb.cursor()
     myresult = {}
     sql_commands=["SELECT * FROM Buildings","SELECT * FROM Labs","SELECT * FROM Tools","SELECT * FROM Tags"]
-    type = ["Buildings", "Labs", "Tools", "Tags"]
+    type = ["buildings", "labs", "tools", "tags"]
     i = 0
 
     # fetch all the data
@@ -53,41 +53,41 @@ def get_data():
               myresult[type[i]][data[row][1]][labels[col][0]] = data[row][col]
         i += 1
     # add tags
-    for tag in myresult["Tags"]:
-      if myresult["Tags"][tag]["TaggedObjTable"] == "Tools":
-        for tool in myresult["Tools"]:
-          if myresult["Tools"][tool]["idTools"] == myresult["Tags"][tag]["TaggedObjID"]:
-            myresult["Tools"][tool]["Tags"] = {}
-            myresult["Tools"][tool]["Tags"][myresult["Tags"][tag]["Tag"]] = myresult["Tags"][tag]
+    for tag in myresult["tags"]:
+      if myresult["tags"][tag]["taggedObjTable"] == "tools":
+        for tool in myresult["tools"]:
+          if myresult["tools"][tool]["idtools"] == myresult["tags"][tag]["taggedObjID"]:
+            myresult["tools"][tool]["tags"] = {}
+            myresult["tools"][tool]["tags"][myresult["tags"][tag]["Tag"]] = myresult["tags"][tag]
 
 
-      elif myresult["Tags"][tag]["TaggedObjTable"] == "Labs":
-        for lab in myresult["Labs"]:
-          if myresult["Labs"][lab]["idLabs"] == myresult["Tags"][tag]["TaggedObjID"]:
-            myresult["Labs"][lab]["Tags"] = {}
-            myresult["Labs"][lab]["Tags"][myresult["Tags"][tag]["Tag"]] = myresult["Tags"][tag]
+      elif myresult["tags"][tag]["taggedObjTable"] == "labs":
+        for lab in myresult["labs"]:
+          if myresult["labs"][lab]["idlabs"] == myresult["tags"][tag]["taggedObjID"]:
+            myresult["labs"][lab]["tags"] = {}
+            myresult["labs"][lab]["tags"][myresult["tags"][tag]["Tag"]] = myresult["tags"][tag]
 
-      elif myresult["Tags"][tag]["TaggedObjTable"] == "Buildings":
-       for building in myresult["Buildings"]:
-          if myresult["Buildings"][building]["idBuildings"] == myresult["Tags"][tag]["TaggedObjID"]:
-            myresult["Buildings"][building]["Tags"] = {}
-            myresult["Buildings"][building]["Tags"][myresult["Tags"][tag]["Tag"]] = myresult["Tags"][tag]
+      elif myresult["tags"][tag]["taggedObjTable"] == "buildings":
+       for building in myresult["buildings"]:
+          if myresult["buildings"][building]["idbuildings"] == myresult["tags"][tag]["taggedObjID"]:
+            myresult["buildings"][building]["tags"] = {}
+            myresult["buildings"][building]["tags"][myresult["tags"][tag]["Tag"]] = myresult["tags"][tag]
 
     # add tools to their labs
-    for lab in myresult["Labs"]:
-        myresult["Labs"][lab]["Tools"] = {}
-        for tool in myresult["Tools"]:
-            if myresult["Tools"][tool]["LabID"] == myresult["Labs"][lab]["idLabs"]:
-                myresult["Labs"][lab]["Tools"][myresult["Tools"][tool]["Name"]] = (myresult["Tools"][tool])
+    for lab in myresult["labs"]:
+        myresult["labs"][lab]["tools"] = {}
+        for tool in myresult["tools"]:
+            if myresult["tools"][tool]["LabID"] == myresult["labs"][lab]["idlabs"]:
+                myresult["labs"][lab]["tools"][myresult["tools"][tool]["name"]] = (myresult["tools"][tool])
 
     # add labs to their buildings
-    for building in myresult["Buildings"]:
-        myresult["Buildings"][building]["Labs"] = {}
-        for lab in myresult["Labs"]:
-            if myresult["Labs"][lab]["BuildingID"] == myresult["Buildings"][building]["idBuildings"]:
-                myresult["Buildings"][building]["Labs"][myresult["Labs"][lab]["Name"]] = (myresult["Labs"][lab])
+    for building in myresult["buildings"]:
+        myresult["buildings"][building]["labs"] = {}
+        for lab in myresult["labs"]:
+            if myresult["labs"][lab]["BuildingID"] == myresult["buildings"][building]["idbuildings"]:
+                myresult["buildings"][building]["labs"][myresult["labs"][lab]["name"]] = (myresult["labs"][lab])
     
-    r = [v for v in myresult['Buildings'].values()]
+    r = [v for v in myresult['buildings'].values()]
     # convert from dict to json
     return json.dumps(r)
 
