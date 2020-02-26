@@ -19,7 +19,7 @@ tags:
 schemes:
 - https
 paths:
-  /searchMap:
+  /getAllTools:
     get:
       tags:
       - user
@@ -37,14 +37,14 @@ paths:
         description: get list of buildings
         required: false
         schema:
-          $ref: '#/definitions/searchMapRequest'
+          $ref: '#/definitions/getAllToolsRequest'
       responses:
         "200":
           description: search results matching criteria
           schema:
             type: array
             items:
-              $ref: '#/definitions/Building'
+              $ref: '#/definitions/building'
         "400":
           description: bad input parameter
   /addBuilding:
@@ -71,7 +71,7 @@ paths:
           schema:
             type: array
             items:
-              $ref: '#/definitions/Building'
+              $ref: '#/definitions/building'
         "400":
           description: bad input parameter
   /addLab:
@@ -98,7 +98,7 @@ paths:
           schema:
             type: array
             items:
-              $ref: '#/definitions/Lab'
+              $ref: '#/definitions/lab'
         "400":
           description: bad input parameter
   /addTool:
@@ -125,7 +125,7 @@ paths:
           schema:
             type: array
             items:
-              $ref: '#/definitions/Tool'
+              $ref: '#/definitions/tool'
         "400":
           description: bad input parameter
   /addTag:
@@ -152,11 +152,11 @@ paths:
           schema:
             type: array
             items:
-              $ref: '#/definitions/Tag'
+              $ref: '#/definitions/tag'
         "400":
           description: bad input parameter
 definitions:
-  Building:
+  building:
     type: object
     required:
     - address
@@ -186,10 +186,10 @@ definitions:
         format: uuid
       hours:
         type: string
-  Lab:
+  lab:
     type: object
     required:
-    - Building
+    - building
     - description
     - hours
     - lat
@@ -197,7 +197,7 @@ definitions:
     - manager
     - name
     properties:
-      Building:
+      building:
         type: object
         properties: {}
       name:
@@ -216,10 +216,9 @@ definitions:
         format: uuid
       hours:
         type: string
-  Tool:
+  tool:
     type: object
     required:
-    - Lab
     - bookingLink
     - description
     - images
@@ -246,7 +245,7 @@ definitions:
       restrictPublic:
         type: boolean
         default: false
-  Person:
+  person:
     type: object
     required:
     - description
@@ -272,7 +271,7 @@ definitions:
         type: string
       title:
         type: string
-  Event:
+  event:
     type: object
     required:
     - description
@@ -299,7 +298,7 @@ definitions:
         type: integer
       person:
         type: string
-  Tag:
+  tag:
     type: object
     required:
     - name
@@ -313,7 +312,7 @@ definitions:
       obj_uuid:
         type: string
         format: uuid
-  searchMapRequest:
+  getAllToolsRequest:
     type: object
     required:
     - uuid
@@ -356,7 +355,7 @@ definitions:
   addLabRequest:
     type: object
     required:
-    - Building
+    - building
     - description
     - hours
     - lat
@@ -364,7 +363,7 @@ definitions:
     - manager
     - name
     properties:
-      Building:
+      building:
         type: object
         properties: {}
       name:
@@ -386,15 +385,15 @@ definitions:
   addToolRequest:
     type: object
     required:
-    - Lab
     - bookingLink
     - description
     - images
+    - lab
     - name
     - owner
     - restrictPublic
     properties:
-      Lab:
+      lab:
         type: object
         properties: {}
       name:
