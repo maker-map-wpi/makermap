@@ -1,5 +1,5 @@
 import React from 'react'
-import { Divider, Grid, Image, Segment, Icon } from 'semantic-ui-react'
+import { Divider, Grid, Image, Segment, Icon, Label } from 'semantic-ui-react'
 
 export default class ProfilePage extends React.Component {
     render() {
@@ -14,6 +14,9 @@ export default class ProfilePage extends React.Component {
                         <h1> Kristen Andonie {this.props.name}</h1>
                     </Segment>
                     <Segment>
+                        <h4> Undergraduate Student {this.props.title}</h4>
+                    </Segment>
+                    <Segment>
                         <p> I'm a robotics engineering and computer science double major. I was on the MakerMap IQP team.</p>
                             <p> I'm an RBE1001 SA, and my hobbies are hiking, climbing, and reading. I'm also Vice President of Rho Beta Epsilon. </p>
                     </Segment>
@@ -21,6 +24,13 @@ export default class ProfilePage extends React.Component {
                         <p> <Icon name='mail' /> kandonie@wpi.edu {this.props.email}</p>
                         <p> <Icon name='phone' /> (305) 798 - 8475</p>
                         <p> <Icon name='home' /> East Hall 314</p>
+                    </Segment>
+                    <Segment>
+                        <Label>Washburn Basic User</Label>
+                        <Label>RBE1001 Staff</Label>
+                        <Label>Class of 2021</Label>
+                        <Label>Robotics Engineering</Label>
+                        <Label>Computer Science</Label>
                     </Segment>
                 </Segment.Group>
 
