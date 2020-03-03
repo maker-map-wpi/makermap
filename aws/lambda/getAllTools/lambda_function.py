@@ -56,20 +56,20 @@ def get_data():
     for tag in myresult["tags"]:
       if myresult["tags"][tag]["taggedObjTable"] == "tools":
         for tool in myresult["tools"]:
-          if myresult["tools"][tool]["idtools"] == myresult["tags"][tag]["taggedObjID"]:
+          if myresult["tools"][tool]["idTools"] == myresult["tags"][tag]["taggedObjID"]:
             myresult["tools"][tool]["tags"] = {}
             myresult["tools"][tool]["tags"][myresult["tags"][tag]["Tag"]] = myresult["tags"][tag]
 
 
       elif myresult["tags"][tag]["taggedObjTable"] == "labs":
         for lab in myresult["labs"]:
-          if myresult["labs"][lab]["idlabs"] == myresult["tags"][tag]["taggedObjID"]:
+          if myresult["labs"][lab]["idLabs"] == myresult["tags"][tag]["taggedObjID"]:
             myresult["labs"][lab]["tags"] = {}
             myresult["labs"][lab]["tags"][myresult["tags"][tag]["Tag"]] = myresult["tags"][tag]
 
       elif myresult["tags"][tag]["taggedObjTable"] == "buildings":
        for building in myresult["buildings"]:
-          if myresult["buildings"][building]["idbuildings"] == myresult["tags"][tag]["taggedObjID"]:
+          if myresult["buildings"][building]["idBuildings"] == myresult["tags"][tag]["taggedObjID"]:
             myresult["buildings"][building]["tags"] = {}
             myresult["buildings"][building]["tags"][myresult["tags"][tag]["Tag"]] = myresult["tags"][tag]
 
@@ -77,14 +77,14 @@ def get_data():
     for lab in myresult["labs"]:
         myresult["labs"][lab]["tools"] = {}
         for tool in myresult["tools"]:
-            if myresult["tools"][tool]["LabID"] == myresult["labs"][lab]["idlabs"]:
+            if myresult["tools"][tool]["labID"] == myresult["labs"][lab]["idLabs"]:
                 myresult["labs"][lab]["tools"][myresult["tools"][tool]["name"]] = (myresult["tools"][tool])
 
     # add labs to their buildings
     for building in myresult["buildings"]:
         myresult["buildings"][building]["labs"] = {}
         for lab in myresult["labs"]:
-            if myresult["labs"][lab]["BuildingID"] == myresult["buildings"][building]["idbuildings"]:
+            if myresult["labs"][lab]["buildingID"] == myresult["buildings"][building]["idBuildings"]:
                 myresult["buildings"][building]["labs"][myresult["labs"][lab]["name"]] = (myresult["labs"][lab])
     
     r = [v for v in myresult['buildings'].values()]
